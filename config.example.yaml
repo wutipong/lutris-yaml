@@ -1,0 +1,7 @@
+games_location: ./games
+output_location: ./installers
+ignored_files:
+  - settings.exe
+  - notification_helper.exe
+  - unitycrashhandler64.exe
+  - unitycrashhandler32.exe
