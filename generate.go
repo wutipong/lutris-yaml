@@ -12,6 +12,7 @@ import (
 // GameConfig represents the structure of the YAML data.
 type GameConfig struct {
 	Name     string `yaml:"name"`
+	Slug     string `yaml:"slug"`
 	GameSlug string `yaml:"game_slug"`
 	Version  string `yaml:"version"`
 	Runner   string `yaml:"runner"`
@@ -31,10 +32,11 @@ type GameScript struct {
 }
 
 func GenerateInstallFile(name string, path string, config Config) (g GameConfig, err error) {
-	slugName := slug.Make(name)
+	slugName := slug.Make(name + " " + filepath.Base(path))
 
 	g = GameConfig{
 		Name:     name,
+		Slug:     "lutris-yaml-installer",
 		GameSlug: slugName,
 		Version:  "local",
 		Runner:   "wine",

@@ -23,7 +23,7 @@ func GetConfig() (config Config, err error) {
 	f, err := os.Open("./config.yaml")
 	if err == nil {
 		b, e := io.ReadAll(f)
-		if err != nil {
+		if e != nil {
 			err = e
 			return
 		}
